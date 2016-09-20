@@ -198,8 +198,6 @@ function bind3DTransparent() {
 }
 
 function startRendering() {
-    status("Loading shaders");
-    
     /*var obj = new RenderableFace([
         -.5, -.5,   1, 0, 0,
         .5, -.5,    1, 1, 0,
@@ -214,11 +212,12 @@ function startRendering() {
     bindRectShader();
     */
     
-    bind3DTransparent();
-    
-    status("Drawing transparent cube");
+    status("Binding transparent cube");
     var cube = new TransparentCube();
     cube.bind();
+    
+    status("Loading shaders");
+    bind3DTransparent();
     
     gl.drawArrays(gl.TRIANGLES, 0, 36);
 }
@@ -261,7 +260,7 @@ timeout(function() {
             boxLayer.classList.add("out");
             timeout(function () {
                 boxLayer.style.display = "none";
-            }, 1000);
+            }, 1500);
         }, 20);
     }, 20);
 }, 1000);

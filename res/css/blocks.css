@@ -48,12 +48,12 @@ body {
     top: 0;
     opacity: 1;
     
-    transition: top ease-out 1s, opacity ease-out .99s, transform .5s ease-out;
+    transition: top ease-out 1.5s, opacity ease-out .99s, transform 1s ease-out;
 }
 
 .out {
     top: -100% !important;
-    transform: rotatex(20deg);
+    transform: rotatex(40deg);
     opacity: 0 !important;
 }
 

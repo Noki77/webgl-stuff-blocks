@@ -1,0 +1,122 @@
+/*
+* This file is part of the project webgl-stuff-blocks, licensed under the
+* Creative Commons Attribution-NoDerivatives 4.0 International license.
+* 
+* Copyright (c) 2016 Justin Vogel <dernoki77@gmail.com>
+* Copyright (c) contributors
+* 
+* You should have received a copy of the license along with this
+* work. If not, see <http://creativecommons.org/licenses/by-nd/4.0/>.
+* 
+* THIS SOFTWARE IS PROVIDED UNDER THE TERMS
+* OF THIS CREATIVE COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE").
+* THE SOFTWARE IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW.
+* ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE
+* OR COPYRIGHT LAW IS PROHIBITED.
+* 
+* BY EXERCISING ANY RIGHTS TO THE SOFTWARE PROVIDED HERE,
+* YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE.
+* TO THE EXTENT THIS LICENSE MAY BE CONSIDERED TO BE A CONTRACT,
+* THE LICENSOR GRANTS YOU THE RIGHTS CONTAINED HERE IN CONSIDERATION
+* OF YOUR ACCEPTANCE OF SUCH TERMS AND CONDITIONS.
+*/
+
+* {
+    font-family: "Arial", "Sans-Serif";
+}
+
+html, body, canvas, #loading-layer {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+body {
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+#cvs {
+    background: #000000;
+}
+
+#loading-layer {
+    position: absolute;
+    background: rgba(255, 255, 255, .5);
+    top: 0;
+    opacity: 1;
+    
+    transition: top ease-out 1s, opacity ease-out .99s, transform .5s ease-out;
+}
+
+.out {
+    top: -100% !important;
+    transform: rotatex(20deg);
+    opacity: 0 !important;
+}
+
+#loader-wrapper {
+    display: table;
+    margin: auto;
+    height: 100%;
+}
+
+#loader-content {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#spinner {
+    width: 75px;
+    height: 75px;
+    box-sizing: border-box;
+    background-color: #808080;
+    background-image: linear-gradient(white 9%, rgba(0, 0, 0, 0) 45%);
+    position: relative;
+    border-radius: 50%;
+    margin: auto;
+    
+    animation: spin linear 4.5s infinite;
+}
+
+#spinner-inner {
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    box-sizing: border-box;
+    background-color: #808080;
+    background-image: linear-gradient(white 9%, rgba(0, 0, 0, 0) 45%);
+    position: relative;
+    transform: rotate(15deg);
+    border-radius: 50%;
+    
+    animation: spin linear 2s infinite reverse;
+}
+
+#spinner-inner:after {
+    background-color: #808080;
+    position: absolute;
+    top: 11%;
+    left: 11%;
+    width: 78%;
+    height: 78%;
+    border-radius: 50%;
+    content: '';
+    transform: none;
+}
+
+#status {
+    color: #fff
+}
+
+@keyframes spin {
+    0% {
+        transform: inherit;
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
